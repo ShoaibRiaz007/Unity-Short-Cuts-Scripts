@@ -7,17 +7,18 @@ public class ChangeMateriaGpuInstancingONAuto : Editor
     private static void ChangeInstance(Material material)
     {
 
-        //Undo.RecordObject(rectTransform, "Anchor UI Object");
+        
         if (!material.enableInstancing)
         {
             try
             {
+                Undo.RecordObject(material, "Assigning enableInstancing");
                 material.enableInstancing = true;
-                Debug.Log("Success ------ =>" + material.name + " --------  " + count++);
+                Debug.Log("<color=green>Successfully Enable ------ </color> =>" + material.name + " --------  " + count++);
             }
             catch
             {
-                Debug.Log("Failled ------ =>" + material.name);
+                 Debug.Log("<color=red>Failled ------ </color> =>" + material.name);
             }
            
         }
